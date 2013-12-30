@@ -5,6 +5,7 @@ $lightblue: #005fdd;
 
 body {
   text-align: center;
+  margin-left: -75px;
   padding-top: 60px;
 }
 
@@ -27,7 +28,36 @@ body {
 
 .navbar {
   .navbar-inner {
-    // background-color: #342;
-    // background-image: none;
+    background-color: #4f4;
+    background-image: none;
   }
+}
+
+/* bootstrap */
+
+.thumbnail {
+  margin: 20px;
+  padding: 20px;
+  display: inline-block;
+  width: 300px;
+  padding: 0 100;
+}
+
+.btn {
+  -webkit-box-sizing: border-box;
+  padding: 10 20;
+  margin: 20 0;
+}
+
+img {
+  padding-top: 20px;
+}
+
+iframe {
+  padding-top: 20px;
+}
+
+.dropdown-header {
+  font-size: 10px;
+  background-color: #bdd;
 }

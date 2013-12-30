@@ -1,7 +1,51 @@
 - provide(:title, 'Home')
 
-%p#para
-  some text
+%ul
+  %li.thumbnail
+    %img{"src" => "assets/aaron-ramsey-shush.jpg", "style" => "max-height:120px; max-width:180px"}
+    .caption
+      %h3
+        RAMBO
+      %p
+      This is the best player in the world, the best image placeholder ever.
+    %a.btn.btn-large.btn-warning
+      RAMBO
+  %li.thumbnail
+    %iframe#video{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "150", :src => "http://www.youtube.com/embed/htmbMSRj1SQ", :title => "YouTube video player", :width => "210"}
+    .caption
+      %h3
+        RAMBO
+      %p
+      This is the best player in the world, the best image placeholder ever.
+    %a.btn.btn-large.btn-warning
+      RAMBO
+  %li.thumbnail
+    %iframe#video{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "150", :src => "http://www.youtube.com/embed/htmbMSRj1SQ", :title => "YouTube video player", :width => "210"}
+    .caption
+      %h3
+        RAMBO
+      %p
+      This is the best player in the world, the best image placeholder ever.
+    %a.btn.btn-large.btn-warning
+      RAMBO
+  %li.thumbnail
+    %img{"src" => "assets/aaron-ramsey-shush.jpg", "style" => "max-height:120px; max-width:180px"}
+    .caption
+      %h3
+        RAMBO
+      %p
+      This is the best player in the world, the best image placeholder ever.
+    %a.btn.btn-large.btn-warning
+      RAMBO
 
-%button.btn.btn-large.btn-danger#animated-btn
-  Big Ass Button
+%button.btn.btn-large.btn-default#animated-btn
+  Navigate
+
+%button.btn.btn-large.btn-success.home-thumb
+  Single play
+
+%button.btn.btn-large.btn-success.home-thumb
+  Competition
+
+%button.btn.btn-large.btn-success.home-thumb
+  Social

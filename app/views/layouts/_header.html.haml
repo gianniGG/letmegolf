@@ -4,12 +4,18 @@
       = link_to "LetMeGolf", root_path, id: 'logo'
       %nav
         %ul.nav.pull-right
-          %li.dropdown= link_to "Home", root_path, id: 'header_hover'
-          %li.dropdown
-            %a.dropdown-toggle{"data-toggle" => "dropdown", id: "header_hover"}
+          %li= link_to "Find a course", '#'
+          %li= link_to "Competetion", root_path
+          %li#fat-menu.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#", onclick: "return false;"}
               Social
-              %b.claret
+              %b.caret
             %ul.dropdown-menu
-              %li Competitions
+              %li.dropdown-header
+                For bants
+              %li= link_to "Events", '#'
               %li.divider
-              %li Events
+              %li.dropdown-header
+                Free fun
+              %li
+                = link_to "Golfday", root_path
