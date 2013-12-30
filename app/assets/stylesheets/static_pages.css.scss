@@ -1,0 +1,33 @@
+@import "bootstrap";
+$lightblue: #005fdd;
+
+/* body */
+
+body {
+  text-align: center;
+  padding-top: 60px;
+}
+
+/* header */
+
+#logo {
+    float: left;
+    margin-right: 10px;
+    font-size: 1.9em;
+    letter-spacing: -0.5px;
+    padding-top: 9px;
+    font-weight: bold;
+    line-height: 1;
+    color: $lightblue;
+    &:hover {
+      text-decoration: none;
+      color: #009fdd
+    }
+}
+
+.navbar {
+  .navbar-inner {
+    // background-color: #342;
+    // background-image: none;
+  }
+}

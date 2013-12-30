@@ -1,0 +1,15 @@
+%header.navbar.navbar-fixed-top.navbar-inverse
+  .navbar-inner
+    .container
+      = link_to "LetMeGolf", root_path, id: 'logo'
+      %nav
+        %ul.nav.pull-right
+          %li.dropdown= link_to "Home", root_path, id: 'header_hover'
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", id: "header_hover"}
+              Social
+              %b.claret
+            %ul.dropdown-menu
+              %li Competitions
+              %li.divider
+              %li Events
