@@ -1,3 +1,4 @@
+
 $ ->
   $('.home-thumb').hide();
   $('#signup-replacement').hide();
@@ -11,7 +12,9 @@ $ ->
   $('.dropdown-toggle').click( ->
     setTimeout("$('.dropdown-menu').fadeOut()", 2750))
 
-  $('#signup-link').click( ->
+  $('#signup-link').hover( ->
     $('#signup-link').fadeOut('fast', ->
       $('#signup-replacement').fadeIn('slow')))
+
+
 

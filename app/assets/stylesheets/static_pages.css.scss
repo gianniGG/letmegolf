@@ -79,3 +79,20 @@ footer {
     font-size: 10px;
     background-color: #bdd;
 }
+
+/* carousel */
+
+#wrapper {
+    width: 554px;
+    height: 313px;
+    margin: -156px 0 0 -277px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 30px #333;
+}
+.carousel img {
+    display: block;
+    float: left;
+}
