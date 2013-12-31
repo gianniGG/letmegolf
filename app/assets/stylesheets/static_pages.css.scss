@@ -1,12 +1,13 @@
 @import "bootstrap";
+
 $lightblue: #005fdd;
 
 /* body */
 
 body {
-  text-align: center;
-  margin-left: -75px;
-  padding-top: 60px;
+    text-align: center;
+    margin-left: -75px;
+    padding-top: 60px;
 }
 
 /* header */
@@ -21,43 +22,66 @@ body {
     line-height: 1;
     color: $lightblue;
     &:hover {
-      text-decoration: none;
-      color: #009fdd
+        text-decoration: none;
+        color: #009fdd;
     }
 }
 
-.navbar {
-  .navbar-inner {
-    background-color: #4f4;
-    background-image: none;
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
   }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+.navbar {
+    .navbar-inner {
+        background-color: #3d3;
+        background-image: none;
+        #signup-link {
+            background-color: #fff;
+            animation-duration: 3s;
+            animation-name: slidein;
+            &:hover {
+                background-color: #3d3;
+            }
+        }
+    }
+}
+
+.navbar .nav > li > a {
+    color: #55f;
+    font-weight: bold;
+}
+
+#signup-link {
+    font-size: 16px;
 }
 
 /* bootstrap */
 
 .thumbnail {
-  margin: 20px;
-  padding: 20px;
-  display: inline-block;
-  width: 300px;
-  padding: 0 100;
+    margin: 20px;
+    padding: 20px;
+    display: inline-block;
+    width: 300px;
+    padding: 0 100;
 }
 
 .btn {
-  -webkit-box-sizing: border-box;
-  padding: 10 20;
-  margin: 20 0;
+    -webkit-box-sizing: border-box;
+    padding: 10 20;
+    margin: 20 0;
 }
 
-img {
-  padding-top: 20px;
-}
-
-iframe {
-  padding-top: 20px;
-}
+/* dropdown */
 
 .dropdown-header {
-  font-size: 10px;
-  background-color: #bdd;
+    font-size: 10px;
+    background-color: #bdd;
 }
