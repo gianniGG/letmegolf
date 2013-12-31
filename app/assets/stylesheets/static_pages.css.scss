@@ -1,6 +1,6 @@
 @import "bootstrap";
 
-$lightblue: #005fdd;
+$lightblue: #05d;
 
 /* body */
 
@@ -12,7 +12,7 @@ body {
 
 /* header */
 
-#logo {
+.logo {
     float: left;
     margin-right: 10px;
     font-size: 1.9em;
@@ -25,18 +25,6 @@ body {
         text-decoration: none;
         color: #009fdd;
     }
-}
-
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 300%;
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
 }
 
 .navbar {
@@ -59,8 +47,14 @@ body {
     font-weight: bold;
 }
 
-#signup-link {
+#signup-link, #signup-replacement {
     font-size: 16px;
+}
+
+/* footer */
+
+footer {
+    font-weight: bold;
 }
 
 /* bootstrap */

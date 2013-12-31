@@ -1,7 +1,7 @@
 %header.navbar.navbar-fixed-top.navbar-inverse
   .navbar-inner
     .container
-      = link_to "LetMeGolf", root_path, id: 'logo'
+      = link_to "LetMeGolf", root_path, class: 'logo'
       %nav
         %ul.nav.pull-right
           %li.header-link= link_to "Find a course", '#', {onclick: 'return false'}
@@ -19,5 +19,5 @@
                 Free fun
               %li
                 = link_to "Golfday", root_path
-          %li#signup-replacement= link_to "Sign up's Easy!", '#', {onclick: 'return false'}
+          %li#signup-replacement= link_to "Sign up's easy!", '#', {onclick: 'return false'}
           %li#signup-link= link_to 'Not a Member?', '#', {onclick: 'return false'}

@@ -12,6 +12,6 @@ $ ->
     setTimeout("$('.dropdown-menu').fadeOut()", 2750))
 
   $('#signup-link').click( ->
-    $('#signup-link').fadeOut('slow', ->
+    $('#signup-link').fadeOut('fast', ->
       $('#signup-replacement').fadeIn('slow')))
 
