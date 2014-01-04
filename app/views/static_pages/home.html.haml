@@ -1,16 +1,27 @@
 - provide(:title, 'Home')
 
-%button.btn.btn-large.btn-default#animated-btn
-  Navigate
+/ %button.btn.btn-large.btn-default#animated-btn
+/   Navigate
 
-%button.btn.btn-large.btn-success.home-thumb
-  Single play
+/ %button.btn.btn-large.btn-success.home-thumb
+/   Single play
 
-%button.btn.btn-large.btn-success.home-thumb
-  Multiplayer
+/ %button.btn.btn-large.btn-success.home-thumb
+/   Multiplayer
 
-%button.btn.btn-large.btn-success.home-thumb
-  Competition
+/ %button.btn.btn-large.btn-success.home-thumb
+/   Compete
 
-%button.btn.btn-large.btn-success.home-thumb
-  Social
+/ %button.btn.btn-large.btn-success.home-thumb
+/   Social
+
+.container
+  %ul#pills.nav.nav-pills
+    %li.active
+      %a#singleplay{href: '#', "data-toggle" => "pill" } Single Play
+    %li
+      %a#multiplayer{href: '#', "data-toggle" => "pill" } Multiplayer
+    %li
+      %a#compete{href: '#', "data-toggle" => "pill" } Compete
+    %li
+      %a#social{href: '#', "data-toggle" => "pill" } Social

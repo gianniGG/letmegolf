@@ -80,19 +80,12 @@ footer {
     background-color: #bdd;
 }
 
-/* carousel */
+/* nav pills */
 
-#wrapper {
-    width: 554px;
-    height: 313px;
-    margin: -156px 0 0 -277px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    overflow: hidden;
-    box-shadow: 0 0 30px #333;
+.nav-pills {
+    margin-left: 30px;
 }
-.carousel img {
-    display: block;
-    float: left;
+
+.nav-pills > .active > a, .nav-pills > li > a {
+    padding: 15 75;
 }

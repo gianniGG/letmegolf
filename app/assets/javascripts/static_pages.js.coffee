@@ -1,20 +1,18 @@
 
 $ ->
-  $('.home-thumb').hide();
+  #Dropdown menu
+  $('.dropdown-toggle').hover ->
+    $('.dropdown-menu').show('fast')
+    setTimeout("$('.dropdown-menu').fadeOut()", 3123)
+
+  #sign up animation
   $('#signup-replacement').hide();
-  $('#animated-btn').fadeOut(1750, ->
-    $('.home-thumb').show("fast", ->
-      $(this).animate({'margin': '0 60'}, 1000)));
-
-  $('.dropdown-toggle').click ->
-    $('.dropdown-menu').toggle("slow")
-
-  $('.dropdown-toggle').click( ->
-    setTimeout("$('.dropdown-menu').fadeOut()", 2750))
-
   $('#signup-link').hover( ->
     $('#signup-link').fadeOut('fast', ->
-      $('#signup-replacement').fadeIn('slow')))
+      $('#signup-replacement').fadeIn('fast')))
 
-
+  #nav pills
+  $('ul.nav-pills li a').click( ->
+    $('ul.nav-pills li.active').removeClass('active')
+    $(this).parent('li').addClass('active'))
 
