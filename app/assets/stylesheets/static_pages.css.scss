@@ -2,6 +2,23 @@
 
 /* ------------------- header------------------------------- */
 
+.nav-pills > li.active > a {
+    color: rgb(12,122,21);
+    background-color: #86E486;
+    margin-bottom: 25px;
+    &:hover {
+        color: rgb(12,122,21);
+        background-color: #86E486;
+    }
+}
+
+.nav-pills > li > a {
+    &:hover {
+        color: rgb(12,122,21);
+        background-color: #66D466;
+    }
+}
+
 /* ------------------- footer --------------------------- */
 
 

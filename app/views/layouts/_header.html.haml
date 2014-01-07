@@ -1,20 +1,24 @@
-%nav.navbar.navbar-default.navbar-fixed-top{role: "navigation"}
-  .navbar-brand= link_to "LetMeGolf", root_path, class: 'logo'
-  %ul.nav.navbar-nav.navbar-right
-    %li.header-link= link_to "Find a course", '#', {onclick: 'return false'}
-    %li.header-link= link_to "Competition", '#', {onclick: 'return false'}
-    %li#fat-menu.dropdown
-      %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#", onclick: "return false;"}
-        Social
-        %b.caret
-      %ul.dropdown-menu
-        %li.dropdown-header
-          Join the community
-        %li.header-link= link_to "Events", '#', {onclick: 'return false'}
-        %li.divider
-        %li.dropdown-header
-          Lmg hosted event
-        %li
-          = link_to "Golfday", root_path
-    %li#signup-replacement= link_to "Sign up's easy!...", '#', {onclick: 'return false'}
-    %li#signup-link= link_to 'Not a Member?', '#', {onclick: 'return false'}
+%ul.nav.nav-pills.nav-stacked
+  %li.active= link_to "LetMeGolf", root_path, class: 'logo'
+
+
+/ %nav.navbar.navbar-default.navbar-fixed-top{role: "navigation"}
+/   .navbar-brand= link_to "LetMeGolf", root_path, class: 'logo'
+/   %ul.nav.navbar-nav.navbar-right
+/     %li.header-link= link_to "Find a course", '#', {onclick: 'return false'}
+/     %li.header-link= link_to "Competition", '#', {onclick: 'return false'}
+/     %li#fat-menu.dropdown
+/       %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#", onclick: "return false;"}
+/         Social
+/         %b.caret
+/       %ul.dropdown-menu
+/         %li.dropdown-header
+/           Join the community
+/         %li.header-link= link_to "Events", '#', {onclick: 'return false'}
+/         %li.divider
+/         %li.dropdown-header
+/           Lmg hosted event
+/         %li
+/           = link_to "Golfday", root_path
+/     %li#signup-replacement= link_to "Sign up's easy!...", '#', {onclick: 'return false'}
+/     %li#signup-link= link_to 'Not a Member?', '#', {onclick: 'return false'}
