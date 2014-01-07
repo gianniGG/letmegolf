@@ -8,6 +8,8 @@ Letmegolf::Application.routes.draw do
   match 'social/golfday', to: 'static_pages#golfday', via: 'get'
 
   resources :users
+  match 'signup', to: 'users#new', via: 'get'
+
   resources :sessions, only: [:new, :create, :destroy]
 
 end

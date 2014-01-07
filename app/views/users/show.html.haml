@@ -1,0 +1,8 @@
+- provide(:title, @user.name)
+
+.container
+  .row
+    Hello,
+    =@user.name.capitalize + '!'
+  .row
+    =gravatar_for @user
