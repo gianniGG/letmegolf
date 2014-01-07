@@ -9,11 +9,11 @@
           .form-horizontal
             =form_for @user do |f|
               =render 'shared/error_messages'
-              =render 'username', f: f
-              =render 'email', f: f, placeholder_text: "Choose an email.."
-              =render 'password', f: f
-              =render 'password_confirmation', f: f
-              =render 'submit_button', f: f, button_text: "Join Up!"
+              =render 'shared/username', f: f, placeholder_text: "Choose your username.."
+              =render 'shared/email', f: f, placeholder_text: "Choose an email.."
+              =render 'shared/password', f: f
+              =render 'shared/password_confirmation', f: f
+              =render 'shared/submit_button', f: f, button_text: "Join Up!"
     .col-md-1
 
 
