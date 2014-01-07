@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$letmegolfGreen: #8e8;
+$lighterGreen: #aea;
+$darkerGreen: #2b2;
+
+@mixin box_sizing {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 /* ----============= gravatar -============== */
 
 .gravatar {
@@ -12,5 +22,67 @@
 /* ---------------- signup ----------------- */
 
 .thumbnail {
-    border: 2px solid #5e5;
+    border: 2px solid $letmegolfGreen;
+    padding-bottom: 20px;
+    padding-left: 30px;
 }
+
+.form-horizontal .form-control {
+    background-color: $lighterGreen;
+    text-align: center;
+}
+
+.form-horizontal .control-label {
+    text-align: center;
+    padding: 7px 0px;
+    width: 20%;
+}
+
+.control-label {
+    text-align: center;
+    margin-left: 5px;
+    border-radius:20px;
+    color: white;
+    font-weight: normal;
+    background-color: $darkerGreen;
+}
+
+input[type="submit"].btn-block {
+    width: 33%;
+    text-align: center;
+    background-color: $darkerGreen;
+}
+
+input, textarea, select, .uneditable-input {
+  width: 20%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+.signupheader {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+}
+/* ---------------- refer a friend ----------------------- */
+
+#referafriend {
+    font-size: 18px;
+    text-align: center;
+    padding-bottom: 22px;
+}
+
+/* ================= error messages ===========================  */
+
+
+
+
+
+
+
+

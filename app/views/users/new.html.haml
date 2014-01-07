@@ -2,22 +2,34 @@
 
 .container
   .row
-    .col-md-8
+    .col-md-6
       .thumbnail
-        %h3.signupheader Sign up to LetMeGolf and
-        %h3.signupheader join the community!
-    .col-md-4
-      .thumbnail
-        %h3.signupheader Sign up to LetMeGolf and
-        %h3.signupheader join the community!
+        %h4.signupheader Sign up to LetMeGolf and join the community
+        .caption
+          .form-horizontal
+            =form_for @user do |f|
+              =render 'shared/error_messages'
+              =render 'username', f: f
+              =render 'email', f: f, placeholder_text: "Choose an email.."
+              =render 'password', f: f
+              =render 'password_confirmation', f: f
+              =render 'submit_button', f: f, button_text: "Join Up!"
+    .col-md-1
+
+
+    / .col-md-5
+    /   .thumbnail
+    /     %h4#referafriend Refer a friend and receive cash!
+    /     .caption
+    /       .form-horizontal
+    /         =form_for @user do |f|
+    /           =render 'email', f: f, placeholder_text: "What's their email?"
+    /           =render 'submit_button', f: f, button_text: "Refer!"
 
 
 
-  / #signup-form-container
-  /   .form-group
-  /     %label.col-sm-2.control-label{for: "userNameSignUp"} Username
-  /     .col-sm-10
-  /       %input#userNameSignUp.form-control{placeholder: "Choose a name...", type: "password"}/
+
+
 
   /   .form-group
   /     %label.col-sm-3.control-label{for: "emailSignUp"} Email
