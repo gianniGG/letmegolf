@@ -5,18 +5,23 @@
 .nav-pills > li.active > a {
     color: rgb(12,122,21);
     background-color: #86E486;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     &:hover {
         color: rgb(12,122,21);
         background-color: #86E486;
     }
 }
 
-.nav-pills > li > a {
+.nav-pills.nav-stacked > li > a {
+    width: 33%;
     &:hover {
         color: rgb(12,122,21);
         background-color: #66D466;
     }
+}
+
+#header-pills {
+    position: fixed;
 }
 
 /* ------------------- footer --------------------------- */

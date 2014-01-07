@@ -19,4 +19,12 @@ $ ->
   $('.home-pills').hide();
   $('.home-pills').fadeIn("slow");
 
+  #carousel
+  $('.carousel-control').on('click', ->
+    $('.item.active').fadeOut("slow", ->
+      $('.item.active').removeClass('active')
+      $('.item',this).addClass('active')
+      $('.item.active').fadeIn("slow") ) )
+
+
 
