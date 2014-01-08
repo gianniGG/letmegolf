@@ -1,30 +1,54 @@
 @import "bootstrap";
 
+body {
+    padding-top: 100px;
+}
+
 /* ------------------- header------------------------------- */
 
 .nav-pills > li.active > a {
     color: rgb(12,122,21);
-    background-color: #86E486;
-    margin-bottom: 5px;
+    background-color: #5e5;
+    margin-left: 5px;
     &:hover {
         color: rgb(12,122,21);
-        background-color: #86E486;
+        background-color: #4d4;
     }
 }
 
 .nav-pills > li > a {
     &:hover {
         color: rgb(12,122,21);
-        background-color: #66D466;
+        background-color: #5e5;
     }
 }
 
-.nav {
-    margin-bottom: 50px;
+.nav-pills {
+    position: fixed;
+    top: 0;
+}
+
+#navigation-id {
+    border: 2px solid #5e5;
+    border-radius: 5px;
+    border-bottom-width: 5px;
+    height: 42px;
+    width: 66%;
+    margin-top:-100px;
 }
 
 
+#profile-image {
+    position: absolute;
+    left: 130px;
+    top: 3px;
+}
 /* ------------------- footer --------------------------- */
 
 
 /* ------------------ bootstrap ----------------------------------*/
+
+.badge {
+    background-color: #3b3;
+    color: white;
+}

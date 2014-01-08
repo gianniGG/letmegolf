@@ -1,21 +1,34 @@
-.container
+.container#navigation-id
   %ul.nav.nav-pills
     %li.active= link_to "LetMeGolf", root_path, class: 'logo'
-    %li= link_to "Single Play", singleplay_path, onclick: 'return false'
-    %li= link_to "Sign in", signin_path unless signed_in? current_user
+    %li.singleplay= link_to "Single Play", singleplay_path, onclick: 'return false'
+    %li.signin= link_to "Sign in", signin_path unless signed_in? current_user
+    %li.signup= link_to "Sign up", signup_path unless signed_in? current_user
     - if signed_in? current_user
-      %li= link_to "Compete", compete_path, onclick: 'return false'
-      %li= link_to "Social", social_path, onclick: 'return false'
+      %li.multiplayer= link_to "Multiplayer", multiplayer_path, onclick: 'return false'
+      %li.compete= link_to "Compete", compete_path, onclick: 'return false'
+      %li.social= link_to "Social", social_path, onclick: 'return false'
       %li.dropdown
-        %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#' }
+        %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#', onclick: 'return false' }
           Account
-        =link_to "Profile", user_path, class: "dropdown-item"
-        %span.caret
-        =link_to "Settings", edit_user_path
-        %span.caret
-        =link_to "Inbox", '#'
-        %span.caret
-        =link_to "Sign Out", signout_path, method: "delete"
+          %span.caret
+        %li.dropdown-menu{'data-timeout' => 'dropdown'}
+          =link_to '#', onclick: 'return false' do
+            Profile
+            %span.pull-right#profile-image
+              =image_tag "/assets/golfer.png", size: "15x25"
+          =link_to '#', onclick: 'return false' do
+            Statistics
+            %span.glyphicon.glyphicon-signal.pull-right
+          =link_to '#', onclick: 'return false' do
+            Settings
+            %span.glyphicon.glyphicon-wrench.pull-right
+          =link_to '#', onclick: 'return false' do
+            Inbox
+            %span.badge.pull-right 42
+          =link_to signout_path, method: "delete" do
+            Sign Out
+            %span.glyphicon.glyphicon-send.pull-right
 
 
 
