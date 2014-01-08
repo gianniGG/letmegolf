@@ -12,17 +12,17 @@
     }
 }
 
-.nav-pills.nav-stacked > li > a {
-    width: 33%;
+.nav-pills > li > a {
     &:hover {
         color: rgb(12,122,21);
         background-color: #66D466;
     }
 }
 
-#header-pills {
-    position: fixed;
+.nav {
+    margin-bottom: 50px;
 }
+
 
 /* ------------------- footer --------------------------- */
 
