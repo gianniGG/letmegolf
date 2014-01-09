@@ -42,12 +42,11 @@ $ ->
 
   #highlight the clicked nav pill
   highlightPill = (pathname) ->
-    unless pathname = "/"
+    unless pathname == "/"
       $('.nav li.active').removeClass('active')
-      $('.nav li.' + pathname[1..-1]).addClass('active')
+      $('.nav li.' + pathname[1..-1].split('/')[0]).addClass('active')
 
   highlightPill(window.location.pathname)
-
 
 
 

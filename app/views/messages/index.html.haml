@@ -1,0 +1,12 @@
+.container#inbox-container
+  %ul.nav.nav-pills.nav-stacked.inbox
+    %li
+      = link_to user_messages_path(current_user) do
+        Inbox
+        %span.badge.pull-right 123
+    %li
+      = link_to user_messages_path(current_user) do
+        Sent Items
+        %span.badge.pull-right 32
+    %li= link_to "New message", new_user_message_path(current_user)
+

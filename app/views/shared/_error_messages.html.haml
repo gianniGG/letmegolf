@@ -1,10 +1,12 @@
-- if @user.errors.any?
+/ subject is @user or @message for example
+
+- if subject.errors.any?
   .alert.alert-warning
-    -if @user.errors.count > 1
+    -if subject.errors.count > 1
       Some details are incorrect
     -else
       One detail is incorrect
-    -@user.errors.full_messages.each do |msg|
+    -subject.errors.full_messages.each do |msg|
       %li=msg
 
 

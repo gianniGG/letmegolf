@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  respond_to :html, :js
 
   def show
     @user = User.find(params[:id])
@@ -31,6 +32,9 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def statistics
   end
 
   private

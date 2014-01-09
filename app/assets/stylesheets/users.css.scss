@@ -19,6 +19,12 @@ $darkerGreen: #2b2;
     margin: 20px;
 }
 
+#profile-image {
+    position: absolute;
+    left: 130px;
+    top: 4px;
+}
+
 /* ---------------- signup ----------------- */
 
 .thumbnail {
@@ -77,8 +83,13 @@ input {
     padding-bottom: 22px;
 }
 
-/* ================= error messages ===========================  */
 
+/* ---------------- bootstrap ----------------------- */
+
+.jumbotron {
+    background-color: #beb;
+    font-size: 12px;
+}
 
 
 

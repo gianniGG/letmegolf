@@ -1,0 +1,28 @@
+.container
+  .row
+    .col-xs-3
+      .jumbotron
+        %ul.nav.nav-pills.nav-stacked.edit-user-nav
+          %li
+            %a.change-password-btn{'data-id' => 'change-password'}
+              Change password
+          %li
+            %a.change-profile-picture-btn{'data-id' => 'change-profile-picture'}
+              Change profile picture
+          %li
+            %a.change-affiliation-btn{'data-id' => 'change-affiliation'}
+              Edit affiliations
+    .col-xs-9
+      .jumbotron.row#change-password
+        =form_for @user do |f|
+          =render 'shared/error_messages', f: f, subject: @user
+          =render 'shared/password', f: f, password_label: :old_password, placeholder: "What was your old password?"
+          =render 'shared/password', f: f, password_label: :new_password, placeholder: "Six or more characters.."
+          =render 'shared/password_confirmation', f: f
+    .col-xs-9
+      .jumbotron.row#change-profile-picture
+        Change your profile picture ...
+    .col-xs-9
+      .jumbotron.row#change-affiliation
+        Change your affiliation...
+

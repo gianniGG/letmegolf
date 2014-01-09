@@ -1,12 +1,20 @@
 class User < ActiveRecord::Base
+
+  has_many :sent_messages, foreign_key: :sender_id, class_name: "Message"
+  has_many :received_messages, foreign_key: :recipient_id, class_name: "Message"
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+
   before_save { self.email = email.downcase }
   before_create :create_remember_token
-  validates :name, presence: true, length: { maximum: 50 }
+
+  validates :name, presence: true, length: { maximum: 20 }
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+
   validates :password, length: { minimum: 6 }
   has_secure_password
+
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
@@ -16,7 +24,7 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
-  private
+    private
 
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)

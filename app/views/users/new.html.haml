@@ -8,11 +8,11 @@
         .caption
           .form-horizontal
             =form_for @user do |f|
-              =render 'shared/error_messages'
+              =render 'shared/error_messages', subject: @user
               =render 'shared/username', f: f, placeholder_text: "Choose your username.."
               =render 'shared/email', f: f, placeholder_text: "Choose an email.."
-              =render 'shared/password', f: f
-              =render 'shared/password_confirmation', f: f
+              =render 'shared/password', f: f, password_label: :password, placeholder: "Six or more characters"
+              =render 'shared/password_confirmation', f: f,
               =render 'shared/submit_button', f: f, button_text: "Join Up!"
     .col-md-1
 

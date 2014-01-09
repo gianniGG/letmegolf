@@ -13,4 +13,11 @@ class StaticPagesController < ApplicationController
 
   def social
   end
+
+  def events
+  end
+
+  def golfday
+  end
+
 end

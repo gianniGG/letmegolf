@@ -9,7 +9,7 @@ body {
 .nav-pills > li.active > a {
     color: rgb(12,122,21);
     background-color: #5e5;
-    margin-left: 5px;
+    margin: 0px -2px;
     &:hover {
         color: rgb(12,122,21);
         background-color: #4d4;
@@ -23,26 +23,19 @@ body {
     }
 }
 
-.nav-pills {
-    position: fixed;
-    top: 0;
-}
 
 #navigation-id {
     border: 2px solid #5e5;
     border-radius: 5px;
     border-bottom-width: 5px;
     height: 42px;
-    width: 66%;
-    margin-top:-100px;
+    width: 80%;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    z-index: 9999;
 }
 
-
-#profile-image {
-    position: absolute;
-    left: 130px;
-    top: 3px;
-}
 /* ------------------- footer --------------------------- */
 
 
