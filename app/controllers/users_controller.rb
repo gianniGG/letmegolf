@@ -36,6 +36,11 @@ class UsersController < ApplicationController
   def statistics
   end
 
+  def check_username
+    username_is_free = User.find_by_name(params[:username]).nil?
+    render json: {free: username_is_free}.to_json
+  end
+
   private
 
     def user_params

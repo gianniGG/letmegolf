@@ -75,6 +75,19 @@ input {
     margin-bottom: 30px;
     letter-spacing: -1px;
 }
+
+#username_check {
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    background-color: #AEA;
+    display: block;
+    float: center;
+    text-align: center;
+    color: #999;
+    margin-bottom: 20px;
+    width: 95.5%;
+}
+
 /* ---------------- refer a friend ----------------------- */
 
 #referafriend {
@@ -91,7 +104,10 @@ input {
     font-size: 12px;
 }
 
-
+.alert.alert-warning {
+    border: 1px solid red;
+    background-color: #8e8;
+}
 
 
 

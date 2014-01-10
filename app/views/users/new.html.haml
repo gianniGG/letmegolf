@@ -9,8 +9,8 @@
           .form-horizontal
             =form_for @user do |f|
               =render 'shared/error_messages', subject: @user
-              =render 'shared/username', f: f, placeholder_text: "Choose your username.."
-              %span#username_check &nbsp;
+              =render 'shared/username', f: f, placeholder_text: "Between 4 and 20 characters.."
+              #username_check
               =render 'shared/email', f: f, placeholder_text: "Choose an email.."
               =render 'shared/password', f: f, password_label: :password, placeholder: "Six or more characters"
               =render 'shared/password_confirmation', f: f

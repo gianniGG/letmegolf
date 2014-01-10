@@ -21,6 +21,9 @@ class MessagesController < ApplicationController
     @sent_messages = current_user.sent_messages
   end
 
+  def show
+    # @received_message = current_user.messages.
+  end
 
   def recipient
     User.find_by_name(params[:message][:recipient])

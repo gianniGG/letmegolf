@@ -13,6 +13,10 @@ Letmegolf::Application.routes.draw do
   #users = & messages ======================================================
 
   resources :users do
+    collection do
+      post :check_username
+    end
+
     resources :messages, only: [:new, :create, :index]
   end
 

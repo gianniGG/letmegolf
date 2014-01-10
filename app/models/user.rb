@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_create :create_remember_token
 
-  validates :name, presence: true, length: { maximum: 20 }
+  validates :name, presence: true, length: { in: 4..20 }, format: { with: /\A\w+/, message: " must be one word" }
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 

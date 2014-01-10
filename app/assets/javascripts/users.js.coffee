@@ -7,6 +7,9 @@ $ ->
   $('#change-profile-picture').hide()
   $('#change-affiliation').hide()
 
+  #for username check
+  $('#username_check').hide()
+
   editSettingsShow = (btn) ->
     $('.jumbotron.row').hide();
     $('#' + btn).show();
@@ -16,9 +19,17 @@ $ ->
 
   #if user name exists already ?
   $('#user_name').on('keyup', ->
-    $.get('/check_username', (username_check) ->
 
+    $('#username_check').show()
+    $.post('/users/check_username', { username: $(this).val() }, (username) ->
+      if username.free
+        $('#username_check').text( $('#user_name').val() + " is free")
+      else
+        $('#username_check').text( $('#user_name').val() + " is taken, pick another name")
     )
+
+    if $('#user_name').val() == ''
+      $('#username_check').hide()
 
   )
 
