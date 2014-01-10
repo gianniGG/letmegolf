@@ -12,18 +12,14 @@ $ ->
     $('#' + btn).show();
 
   $('.edit-user-nav a').on 'click', ->
-    editSettingsShow($(this).data('id'))
+    editSettingsShow $(this).data('id')
 
-    #   $('#change-password').show()
-    #   $('#change-profile-picture').hide()
-    #   $('#change-affiliation').hide()
+  #if user name exists already ?
+  $('#user_name').on('keyup', ->
+    $.get('/check_username', (username_check) ->
 
-    # $('.change-profile-picture-btn').on 'click', ->
-    #   $('#change-password').hide()
-    #   $('#change-profile-picture').show()
-    #   $('#change-affiliation').hide()
+    )
 
-    # $('.change-affiliation-btn').on 'click', ->
-    #   $('#change-password').hide()
-    #   $('#change-profile-picture').hide()
-    #   $('#change-affiliation').show()
+  )
+
+

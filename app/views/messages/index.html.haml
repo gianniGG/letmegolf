@@ -1,12 +1,47 @@
-.container#inbox-container
-  %ul.nav.nav-pills.nav-stacked.inbox
-    %li
-      = link_to user_messages_path(current_user) do
-        Inbox
-        %span.badge.pull-right 123
-    %li
-      = link_to user_messages_path(current_user) do
-        Sent Items
-        %span.badge.pull-right 32
-    %li= link_to "New message", new_user_message_path(current_user)
+.container#inbox-nav-container
+  .row
+    .col-xs-3
+      %ul.nav.nav-pills.nav-stacked.messages-nav
+        %li
+          = link_to '#', 'data-id' => 'inbox', onclick: 'return false' do
+            Inbox
+            %span.badge.pull-right
+              -if @received_messages.count
+                =@received_messages.count
+              -else
+                ""
+        %li
+          = link_to '#', 'data-id' => 'sent', onclick: 'return false' do
+            Sent Items
+            %span.badge.pull-right
+              -if @sent_messages.count
+                =@sent_messages.count
+              -else
+                ""
+        %li= link_to "New message", new_user_message_path(current_user)
 
+    .col-xs-9
+      .jumbotron.row#inbox
+        %ul
+          -@received_messages.each do |msg|
+            Received
+            %span
+              = time_ago_in_words(msg.created_at)
+              ago,  from
+              = msg.sender.name
+            %br
+            = msg.body
+            %br
+
+    .col-xs-9
+      .jumbotron.row#sent
+        %ul
+          -@sent_messages.each do |msg|
+            Sent
+            %span
+              = time_ago_in_words(msg.created_at)
+              ago to
+              = msg.recipient.name
+            %br
+            = msg.body
+            %br

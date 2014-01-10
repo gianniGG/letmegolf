@@ -13,7 +13,7 @@ Letmegolf::Application.routes.draw do
   #users = & messages ======================================================
 
   resources :users do
-    resources :messages
+    resources :messages, only: [:new, :create, :index]
   end
 
   match '/signup', to: 'users#new', via: 'get'

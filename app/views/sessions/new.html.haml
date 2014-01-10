@@ -9,7 +9,7 @@
           .form-horizontal
             =form_for(:session, url: sessions_path ) do |f|
               =render 'shared/username', f: f, placeholder_text: "Username"
-              =render 'shared/password', f: f
+              =render 'shared/password', f: f, password_label: :password, placeholder: "Enter password.."
               =render 'shared/submit_button', f: f, button_text: "Enter Lmg"
           %p
             New to Lmg?

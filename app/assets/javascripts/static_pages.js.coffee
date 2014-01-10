@@ -32,14 +32,6 @@ $ ->
     $('ul.nav-pills li.active').removeClass('active')
     $(this).parent('li').addClass('active'))
 
-  #carousel
-  $('.carousel-control').on('click', ->
-    $('.item.active').fadeOut("slow", ->
-      $('.item.active').removeClass('active')
-      $('.item',this).addClass('active')
-      $('.item.active').fadeIn("slow") ) )
-
-
   #highlight the clicked nav pill
   highlightPill = (pathname) ->
     unless pathname == "/"

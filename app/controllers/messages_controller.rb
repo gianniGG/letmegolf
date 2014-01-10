@@ -13,32 +13,14 @@ class MessagesController < ApplicationController
       redirect_to user_messages_path(current_user)
     else
       render 'new'
-      # @message.errors.clear
     end
   end
 
-  def destroy
-    # @message = nil
-    # redirect_to user_messages_path(current_user)
-  end
-
   def index
-    @user = current_user
-    @message = Message.all
+    @received_messages = current_user.received_messages
+    @sent_messages = current_user.sent_messages
   end
 
-
-  def edit
-    # @message = Message.new
-  end
-
-  def update
-    # @message.update_attributes(params[:message][:content]) if params[:message][:user] == current_user
-  end
-
-  def show
-    # @message.find_by(params[:message][:id])
-  end
 
   def recipient
     User.find_by_name(params[:message][:recipient])
