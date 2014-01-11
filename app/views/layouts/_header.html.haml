@@ -25,7 +25,9 @@
             %span.glyphicon.glyphicon-wrench.pull-right
           =link_to user_messages_path(current_user) do
             Inbox
-            %span.badge.pull-right 123
+            -if @received_messages
+              %span.badge.pull-right
+                =@received_messages.count
           =link_to signout_path, method: "delete" do
             Sign Out
             %span.glyphicon.glyphicon-send.pull-right

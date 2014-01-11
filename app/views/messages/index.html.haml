@@ -5,19 +5,17 @@
         %li
           = link_to '#', 'data-id' => 'inbox', onclick: 'return false' do
             Inbox
-            %span.badge.pull-right
-              -if @received_messages.count
+            -if @received_messages.count > 0
+              %span.badge.pull-right
                 =@received_messages.count
-              -else
-                ""
+
         %li
           = link_to '#', 'data-id' => 'sent', onclick: 'return false' do
             Sent Items
-            %span.badge.pull-right
-              -if @sent_messages.count
+            -if @sent_messages.count > 0
+              %span.badge.pull-right
                 =@sent_messages.count
-              -else
-                ""
+
         %li= link_to "New message", new_user_message_path(current_user)
 
     .col-xs-9
