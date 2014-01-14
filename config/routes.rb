@@ -1,6 +1,7 @@
 Letmegolf::Application.routes.draw do
   root to: 'static_pages#home'
-  #static pages -----------------------------------------------
+
+  #static pages ============================================================
 
   match '/singleplay', to: 'static_pages#singleplay', via: 'get'
   match '/multiplayer', to: 'static_pages#multiplayer', via: 'get'
@@ -17,13 +18,28 @@ Letmegolf::Application.routes.draw do
       post :check_username
     end
 
-    resources :messages, only: [:new, :create, :index]
+    resources :messages, only: [:new, :create, :index] do
+      collection do
+        post :show_message
+      end
+    end
+
   end
+
+
+  #groups ==================================================================
+
+  resources :groups do
+    collection do
+      post :check_groupname
+    end
+  end
+
 
   match '/signup', to: 'users#new', via: 'get'
   match '/statistics', to: 'users#statistics', via: 'get'
 
-  #sessions -----------------------------------------------------
+  #sessions ================================================================
 
   resources :sessions, only: [:new, :create, :destroy]
   match '/signin', to: 'sessions#new', via: 'get'

@@ -4,13 +4,13 @@
   .row
     .col-md-6
       .thumbnail
-        %h4.signupheader Sign up to LetMeGolf and join the community
+        %h4.signupheader Login and get on the green
         .caption
           .form-horizontal
             =form_for(:session, url: sessions_path ) do |f|
               =render 'shared/username', f: f, placeholder_text: "Username"
               =render 'shared/password', f: f, password_label: :password, placeholder: "Enter password.."
-              =render 'shared/submit_button', f: f, button_text: "Enter Lmg"
+              =render 'shared/submit_button', f: f, button_text: "Enter"
           %p
             New to Lmg?
             =link_to "Join the community", signup_path

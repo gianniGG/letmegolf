@@ -4,4 +4,5 @@ class Message < ActiveRecord::Base
 
   validates :body, presence: true, length: { maximum: 1000 }
   validates :recipient, presence: { message: "doesn't exist" }
+
 end

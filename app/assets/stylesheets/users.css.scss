@@ -29,6 +29,7 @@ $darkerGreen: #2b2;
 
 .thumbnail {
     border: 2px solid $letmegolfGreen;
+    border-bottom: 5px solid $letmegolfGreen;
     padding-bottom: 20px;
     padding-left: 30px;
 }
@@ -109,7 +110,13 @@ input {
     background-color: #8e8;
 }
 
+/* edit user nav */
 
+#edit-user-nav {
+    font-size: 16px;
+}
 
+#edit-user-jumbo {
+    padding: 15px;
 
-
+}

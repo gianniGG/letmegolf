@@ -1,0 +1,9 @@
+%h3 New Message
+
+=form_for [@user, @message] do |f|
+  =render 'shared/error_messages', subject: @message
+  =render 'shared/text_field',f: f, label: :To, field: :recipient, placeholder: 'Send to...'
+  =render 'shared/text_field',f: f, label: :Subject, field: :subject, placeholder: '(Optional)'
+  =f.text_area :body, id: 'new-msg', placeholder: 'Say hello'
+
+  =render 'shared/submit_button', f: f, button_text: "Send"

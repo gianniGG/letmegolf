@@ -1,45 +1,51 @@
-.container#inbox-nav-container
+.container
   .row
     .col-xs-3
-      %ul.nav.nav-pills.nav-stacked.messages-nav
+      %ul.nav.nav-pills.nav-stacked.messages-nav#inbox-nav-container
         %li
           = link_to '#', 'data-id' => 'inbox', onclick: 'return false' do
             Inbox
-            -if @received_messages.count > 0
-              %span.badge.pull-right
-                =@received_messages.count
+            %span.badge.pull-right
+              =@received_messages ? @received_messages.count : 0
 
         %li
           = link_to '#', 'data-id' => 'sent', onclick: 'return false' do
             Sent Items
-            -if @sent_messages.count > 0
-              %span.badge.pull-right
-                =@sent_messages.count
+            %span.badge.pull-right
+              =@sent_messages ? @sent_messages.count : 0
 
-        %li= link_to "New message", new_user_message_path(current_user)
+
+
+        %li= link_to "New message", new_user_message_path(current_user), 'id' => 'new-message'
+
+    .col-xs-9
+      .jumbotron.row#new-message-form{class: ('shown' if @message.errors.any?)}
+        = render 'new'
 
     .col-xs-9
       .jumbotron.row#inbox
         %ul
-          -@received_messages.each do |msg|
-            Received
-            %span
-              = time_ago_in_words(msg.created_at)
-              ago,  from
-              = msg.sender.name
-            %br
-            = msg.body
-            %br
+          -if @received_messages
+            -@received_messages.reverse.each do |msg|
+              =link_to msg.subject, '#', onclick: 'return false'
+              received
+              %span
+                = time_ago_in_words(msg.created_at)
+                ago from
+                %span#sender= msg.sender.name
+              %br
+              .message-body= msg.body
 
     .col-xs-9
       .jumbotron.row#sent
         %ul
-          -@sent_messages.each do |msg|
-            Sent
-            %span
-              = time_ago_in_words(msg.created_at)
-              ago to
-              = msg.recipient.name
-            %br
-            = msg.body
-            %br
+          -if @sent_messages
+            -@sent_messages.each do |msg|
+              Sent
+              %span
+                = time_ago_in_words(msg.created_at)
+                ago to
+                = msg.recipient.name
+              %br
+              = msg.body
+              %br

@@ -14,7 +14,7 @@ $ ->
     $('.jumbotron.row').hide();
     $('#' + btn).show();
 
-  $('.edit-user-nav a').on 'click', ->
+  $('#edit-user-nav a').on 'click', ->
     editSettingsShow $(this).data('id')
 
   #if user name exists already ?
@@ -32,5 +32,7 @@ $ ->
       $('#username_check').hide()
 
   )
+
+
 
 

@@ -35,8 +35,16 @@
 }
 
 
-/* =====---------------===== forms =====---------------===== */
+/* =====---------------===== nav pills hover =====---------------===== */
 
+.nav-pills > li > a {
+  &:hover { cursor: pointer; }
+}
 
+ul > a {
+    &:hover { text-decoration: none; }
+}
 
-
+.align-center {
+    text-align: center;
+}

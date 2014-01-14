@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140110113141) do
+ActiveRecord::Schema.define(version: 20140114140545) do
+
+  create_table "groups", force: true do |t|
+    t.string   "name"
+    t.string   "leader"
+    t.string   "admins"
+    t.integer  "points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "microposts"
+  end
 
   create_table "messages", force: true do |t|
     t.datetime "created_at"
@@ -20,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140110113141) do
     t.integer  "recipient_id"
     t.string   "body"
     t.boolean  "status"
+    t.string   "subject"
   end
 
   create_table "users", force: true do |t|
@@ -29,6 +40,8 @@ ActiveRecord::Schema.define(version: 20140110113141) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.integer  "group_id"
+    t.integer  "points"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

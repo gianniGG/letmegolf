@@ -1,0 +1,15 @@
+.container
+  .row
+    .col-xs-1
+    .col-xs-8
+      .thumbnail
+        %h4.signupheader Sign up to LetMeGolf and join the community
+        .caption
+          .form-horizontal
+            =form_for @group, html: {class: 'new-group' } do |f|
+              =render 'shared/error_messages', f: f, subject: @group
+              =render 'shared/text_field', f: f, label: 'Group name', field: :name, placeholder: 'Pick a name...'
+              #groupname_check
+              =render 'shared/text_field', f: f, label: 'Admins', field: :admins, placeholder: 'To help maintain the group'
+              =render 'shared/submit_button', f: f, button_text: "Make group"
+    .col-xs-4

@@ -1,0 +1,40 @@
+.container
+  .row
+    .col-xs-2
+    .col-xs-8
+      .jumbotron
+        %h4.align-center
+          =@group.name
+
+    .col-xs-2
+
+  .row
+    .col-xs-2
+    .col-xs-8
+      .jumbotron#edit-group-jumbo
+        -if @group.leader == current_user.name
+          %h4.align-center
+            Make changes to your group
+          .row#edit-group-btns
+            .col-xs-3
+              %button.btn.btn-danger.btn-large{'data-id' => 'group-remove-members'}
+                Remove members
+                %span.glyphicon.glyphicon-remove
+            .col-xs-1
+            .col-xs-3
+              %button.btn.btn-success.btn-large{'data-id' => 'group-add-members'}
+                Add members
+                %span.glyphicon.glyphicon-plus
+            .col-xs-1
+            .col-xs-3
+              %button.btn.btn-primary.btn-large{'data-id' => 'group-compete'}
+                Apply to competition
+                %span.glyphicon.glyphicon-play-circle
+            .col-xs-1
+
+  .row
+    .col-xs-2
+    .col-xs-8
+      .jumbotron.jumbos-on-toggle#group-remove-members
+      .jumbotron.jumbos-on-toggle#group-add-members
+      .jumbotron.jumbos-on-toggle#group-compete

@@ -1,0 +1,55 @@
+
+
+// Place all the styles related to the groups controller here.
+
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.new-group .control-label {
+    padding: 1%;
+}
+
+#groupname_check {
+    border: 1px solid #192;
+    color: #192;
+    border-radius: 4px;
+    background-color: #AEA;
+    display: block;
+    float: center;
+    text-align: center;
+    color: #999;
+    margin-bottom: 30px;
+    margin-left: 33%;
+    width: 50%;
+    height: 15%;
+    padding-top: 1%;
+}
+
+#group-name {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.user-show {
+    text-align: center;
+    font-size: 22px;
+    padding: 1% 0%;
+    background-color: #8e8;
+}
+
+#create-group-btn, #view-groups-btn, #edit-group-btn { margin: 3% 42%;}
+#join-group-btn { margin: 3% 42% 0% 42%; }
+
+/*ON EDIT GROUP PAGE*/
+#edit-group-btns { margin: 5% 1%; }
+#edit-group-jumbo { padding-bottom: 2%; }
+
+#create-group-link, #find-group-link, #edit-group-link {
+    color: white;
+    &:hover{text-decoration: none;}
+}
+
+#view-groups-link {
+    color: #777;
+    &:hover{text-decoration: none;}
+}

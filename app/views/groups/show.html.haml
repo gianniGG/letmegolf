@@ -1,0 +1,31 @@
+.container
+  .row
+    .col-xs-2
+    .col-xs-8
+      .jumbotron
+        %h4.user-show
+          Hello
+          =current_user.name
+
+  .row
+    .col-xs-2
+    .col-xs-8
+      .jumbotron
+        -if current_user.group_id
+          %h4.align-center
+            Welcome to
+            =@group.name
+            -if @group.admins.include? current_user.name
+              %button.btn.btn-danger.btn-large#edit-group-btn
+                =link_to "Group settings", edit_group_path, id: 'edit-group-link'
+            %button.btn.btn-default.btn-large#view-groups-btn
+              =link_to "View all groups", groups_path, id: 'view-groups-link'
+        -else
+          %h4.user-show
+            You have no affiliation
+          %button.btn.btn-success.btn-large#create-group-btn
+            =link_to "Create a group", new_group_path, id: 'create-group-link'
+          %h4.user-show
+            Or apply to join another
+          %button.btn.btn-primary.btn-large#join-group-btn
+            =link_to "Look for group", groups_path, id: 'find-group-link'
