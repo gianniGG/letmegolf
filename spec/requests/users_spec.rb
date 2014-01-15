@@ -5,6 +5,21 @@ describe "Users" do
   let(:user) { FactoryGirl.create(:user) }
   subject { page }
 
+  describe "visiting pages that require login" do
+    context "user#show" do
+      before { visit user_path(user) }
+      it { should have_title(full_title('Sign In')) }
+      it { should have_selector('div.alert.alert-warning') }
+    end
+
+    context "user#edit" do
+      before { visit edit_user_path(user) }
+      it { should have_title(full_title('Sign In')) }
+      it { should have_selector('div.alert.alert-warning') }
+    end
+
+  end
+
   describe "valid sign up" do
     before { visit signup_path }
 
@@ -34,7 +49,7 @@ describe "Users" do
         click_button "Join Up!"
       end
 
-      specify { expect(User.count).to be 2 }
+      specify { expect(User.count).to eq 2 }
 
       context "redirect to welcome page" do
         it { should have_selector('div.alert.alert-success') }
@@ -45,16 +60,24 @@ describe "Users" do
   end
 
   describe "edit user (users#edit & update)" do
-    context "incorrect info entered" do
-      before do
-        sign_in user
-        visit user_edit_path(user)
-        click_link "Change password"
-        fill_in "Old password", with: user.password
-      end
+    before do
+      # sign_in user
+        visit signin_path
+      fill_in "Name",   with: user.name
+      fill_in "Password", with: 'foobar'
+      click_button "Enter"
+      visit edit_user_path(user)
+      click_link "Change password"
+      # fill_in "Old password", with: user.password
+    end
 
+    context "page content" do
+      it { should have_link "Change password" }
+    end
 
-
+    describe "with incomplete form" do
+      before { click_button "Make changes" }
+      it { should have_selector('div.alert.alert-warning') }
     end
 
   end

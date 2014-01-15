@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  attr_accessor :old_password
 
   has_many :sent_messages, foreign_key: :sender_id, class_name: "Message"
   has_many :received_messages, foreign_key: :recipient_id, class_name: "Message"
@@ -22,7 +23,6 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
@@ -36,5 +36,4 @@ class User < ActiveRecord::Base
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
     end
-
 end

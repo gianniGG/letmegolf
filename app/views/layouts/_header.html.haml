@@ -2,9 +2,9 @@
   %ul.nav.nav-pills
     %li.active= link_to "LetMeGolf", root_path, class: 'logo'
     %li.singleplay= link_to "Single Play", singleplay_path
-    %li.signin= link_to "Sign in", signin_path unless signed_in? current_user
-    %li.signup= link_to "Sign up", signup_path unless signed_in? current_user
-    - if signed_in? current_user
+    %li.signin= link_to "Sign in", signin_path unless signed_in?
+    %li.signup= link_to "Sign up", signup_path unless signed_in?
+    - if signed_in?
       %li.multiplayer= link_to "Multiplayer", multiplayer_path
       %li.compete= link_to "Compete", compete_path
       %li.social= link_to "Social", social_path
@@ -17,15 +17,15 @@
             Profile
             %span.pull-right#profile-image
               =image_tag "golfer.png", size: "15x23"
+          =link_to edit_user_path(current_user) do
+            Settings
+            %span.glyphicon.glyphicon-wrench.pull-right
           = link_to group_path(current_user) do
             Affiliation
             %span.glyphicon.glyphicon-home.pull-right
           =link_to statistics_path do
             Statistics
             %span.glyphicon.glyphicon-signal.pull-right
-          =link_to edit_user_path(current_user) do
-            Settings
-            %span.glyphicon.glyphicon-wrench.pull-right
           =link_to user_messages_path(current_user) do
             Inbox
             %span.badge.pull-right

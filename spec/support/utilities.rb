@@ -8,11 +8,11 @@ def sign_in user
 end
 
 def full_title page_title
-  base_title = "TLR"
+  base_title = "LetMeGolf"
   if page_title.empty?
     base_title
   else
-    "#{base_title} : #{page_title}"
+    "#{base_title} ~ #{page_title}"
   end
 end
 
