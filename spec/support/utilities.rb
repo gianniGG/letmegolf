@@ -1,22 +1,18 @@
 include ApplicationHelper
 
-def valid_signin(user)
-  fill_in "name", with: user.name
-  fill_in "password", with: user.password
-  click_button "commit"
+def sign_in user
+  visit signin_path
+  fill_in "Name",    with: user.name
+  fill_in "Password", with: user.password
+  click_button "Enter"
 end
 
-RSpec::Matchers.define :have_alert do |message|
-  match do |page|
-    expect(page).to have_selector('.alert', text: message )
-  end
-end
-
-def full_title(extension)
-  base_title = "LetMeGolf"
-  if extension.empty?
-    full_title = base_title
+def full_title page_title
+  base_title = "TLR"
+  if page_title.empty?
+    base_title
   else
-    return "#{base_title} ~ #{extension}"
+    "#{base_title} : #{page_title}"
   end
 end
+

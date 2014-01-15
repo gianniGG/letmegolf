@@ -14,9 +14,11 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new group_params
-    @group.users << current_user
     @group.users += Group.parse_admins params[:group][:admins] if Group.parse_admins params[:group][:admins]
+
+    @group.users << current_user
     @group.users.uniq!
+    @group.points = @group.total_user_points
 
     if @group.save
       flash[:success] = "Group created."
@@ -50,6 +52,6 @@ class GroupsController < ApplicationController
   private
 
     def group_params
-      { name: params[:group][:name], admins: admins.map(&:name), leader: current_user.name, points: 0 }
+      { name: params[:group][:name], admins: admins, leader: current_user.name, points: 0 }
     end
 end
