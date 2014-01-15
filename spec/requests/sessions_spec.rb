@@ -1,10 +1,26 @@
-
 require 'spec_helper'
 
 describe "Sessions" do
   before { visit signin_path }
-  let(:user) {FactoryGirl.create(:user)}
+  let(:user) { FactoryGirl.create(:user) }
   subject { page }
+
+  describe "visiting pages that require login" do
+    context "user#show" do
+      before { visit user_path(user) }
+      it { should have_title(full_title('Sign In')) }
+      it { should have_selector('div.alert.alert-warning') }
+    end
+
+    context "user#edit" do
+      before { visit edit_user_path(user) }
+      it { should have_title(full_title('Sign In')) }
+      it { should have_selector('div.alert.alert-warning') }
+    end
+
+
+
+  end
 
   describe "invalid signin (sessions#new)" do
 

@@ -5,21 +5,6 @@ describe "Users" do
   let(:user) { FactoryGirl.create(:user) }
   subject { page }
 
-  describe "visiting pages that require login" do
-    context "user#show" do
-      before { visit user_path(user) }
-      it { should have_title(full_title('Sign In')) }
-      it { should have_selector('div.alert.alert-warning') }
-    end
-
-    context "user#edit" do
-      before { visit edit_user_path(user) }
-      it { should have_title(full_title('Sign In')) }
-      it { should have_selector('div.alert.alert-warning') }
-    end
-
-  end
-
   describe "valid sign up" do
     before { visit signup_path }
 

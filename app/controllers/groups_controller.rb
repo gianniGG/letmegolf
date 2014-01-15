@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  skip_before_action :index
 
   def index
     @groups = Group.all
