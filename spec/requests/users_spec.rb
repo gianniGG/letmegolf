@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Users" do
 
-  let(:user) {FactoryGirl.create(:user)}
+  let(:user) { FactoryGirl.create(:user) }
   subject { page }
 
   describe "valid sign up" do
@@ -44,7 +44,23 @@ describe "Users" do
     end
   end
 
+  describe "edit user (users#edit & update)" do
+    context "incorrect info entered" do
+      before do
+        sign_in user
+        visit user_edit_path(user)
+        click_link "Change password"
+        fill_in "Old password", with: user.password
+      end
+
+
+
+    end
+
+  end
+
 end
+
 
 
 
