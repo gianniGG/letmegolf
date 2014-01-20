@@ -46,14 +46,11 @@ describe "Users" do
 
   describe "edit user (users#edit & update)" do
     before do
-      # sign_in user
-        visit signin_path
+      visit signin_path
       fill_in "Name",   with: user.name
       fill_in "Password", with: 'foobar'
       click_button "Enter"
       visit edit_user_path(user)
-      click_link "Change password"
-      # fill_in "Old password", with: user.password
     end
 
     context "page content" do
@@ -63,6 +60,18 @@ describe "Users" do
     describe "with incomplete form" do
       before { click_button "Make changes" }
       it { should have_selector('div.alert.alert-warning') }
+    end
+
+    describe "with correct old pw and new pws" do
+      before do
+        fill_in "Old password", with: 'foobar'
+        fill_in "New password", with: '123456'
+        fill_in :user_password_confirmation, with: '123456'
+        click_button "Make changes"
+      end
+
+      it { should have_selector('div.alert.alert-success') }
+
     end
 
   end

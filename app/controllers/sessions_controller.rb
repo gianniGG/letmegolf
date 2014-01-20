@@ -1,7 +1,4 @@
 class SessionsController < ApplicationController
-  skip_before_action :signed_in_user, only: [:create, :show, :new, :destroy]
-  skip_before_action :correct_user, only: [:create, :show, :new, :destroy]
-
 
   def new
   end

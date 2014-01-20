@@ -17,7 +17,7 @@
         =form_for @user do |f|
           =render 'shared/error_messages', f: f, subject: @user
           =render 'shared/password', f: f, password_label: :old_password, placeholder: "What was your old password?"
-          =render 'shared/password', f: f, password_label: :password, placeholder: "Six or more characters.."
+          =render 'shared/password', f: f, password_label: :new_password, placeholder: "Six or more characters.."
           =render 'shared/password_confirmation', f: f
           =render 'shared/submit_button', f:f, button_text: "Make changes"
 

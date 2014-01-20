@@ -11,12 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140114140545) do
+ActiveRecord::Schema.define(version: 20140116165754) do
+
+  create_table "group_admins", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "group_id"
+  end
 
   create_table "groups", force: true do |t|
     t.string   "name"
     t.string   "leader"
-    t.string   "admins"
     t.integer  "points"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_action :signed_in_user, only: [:create, :index, :new]
-  skip_before_action :correct_user, only: [:create, :index, :new]
+  before_action :signed_in_user, only: [:show, :index, :edit, :update]
+  before_action :correct_user, only: [:show, :index, :edit, :update]
 
   def show
     @user = User.find(params[:id])
@@ -55,19 +55,19 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :old_password)
     end
 
-    # def signed_in_user
-    #   unless signed_in?
-    #     flash[:warning] = "Please sign in"
-    #     redirect_to signin_path
-    #   end
-    # end
+    def signed_in_user
+      unless signed_in?
+        flash[:warning] = "Please sign in"
+        redirect_to signin_path
+      end
+    end
 
-    # def correct_user
-    #   @user = User.find(params[:id])
-    #   unless current_user? @user
-    #     flash[:warning] = "Please sign in"
-    #     redirect_to signin_path
-    #   end
-    # end
+    def correct_user
+      @user = User.find(params[:id])
+      unless current_user? @user
+        flash[:warning] = "Please sign in"
+        redirect_to signin_path
+      end
+    end
 
 end

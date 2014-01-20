@@ -1,10 +1,30 @@
 .container
   .row
-    .col-xs-3
+    .col-xs-3#group-nav-container
       %ul.nav.nav-pills.nav-stacked
-        %li= link_to "New group", new_group_path
+        -if current_user.group
+          %li= link_to "My Affiliation", group_path(current_user)
+          .row
+            .jumbotron.no-margin-bottom
+              %h4
+                Group:
+                = current_user.group.name
+              .row
+                .col-xs-1
+                .col-xs-11
+                  %h5
+                    Points:
+                    = current_user.group.points
+        -else
+          %li= link_to "New group", new_group_path(current_user)
+
     .col-xs-9
-      .jumbotron
+      .jumbotron.no-margin-bottom
+        .row
+          .col-xs-1
+          .col-xs-10
+            .jumbotron#Affiliations-title
+              %h3 Affiliations - By Points
         %ul#group-index
           -@groups.sort_by{|grp| grp.points}.each do |grp|
             %li

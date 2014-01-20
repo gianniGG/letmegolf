@@ -29,6 +29,7 @@ Letmegolf::Application.routes.draw do
 
   #groups ==================================================================
 
+
   resources :groups do
     collection do
       post :check_groupname

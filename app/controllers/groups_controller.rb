@@ -1,12 +1,11 @@
 class GroupsController < ApplicationController
-  skip_before_action :index
 
   def index
     @groups = Group.all
   end
 
   def show
-    @group = Group.find_by_id(current_user.group_id)
+    @group = current_user.group
   end
 
   def new
@@ -15,14 +14,28 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new group_params
-    @group.users += Group.parse_admins params[:group][:admins] if Group.parse_admins params[:group][:admins]
 
+    #group attributes before save
+    entered_admins = params[:group][:admins] ? Group.parse_admins(params[:group][:admins]) : nil
+    admins_to_save = entered_admins ? Group.saved_admins(entered_admins) : nil
     @group.users << current_user
-    @group.users.uniq!
+    @group.admins << current_user
+
+    if admins_to_save
+      @group.users << admins_to_save; @group.admins << admins_to_save
+      @unsaved_admins = Group.invalid_admins(entered_admins)
+    end
+
     @group.points = @group.total_user_points
 
+    @group.admins.map(&:name)
     if @group.save
-      flash[:success] = "Group created."
+      flash[:success] = "Group created.\n"
+      if admins_to_save
+        flash[:success] << "#{@group.admins.first.name} made admin"
+        # flash[:success] << "Administrative powers given to #{@group.admins[0..-2].join(', ')} and #{@group.admins.last}"
+        # flash[:warning] << "#{@unsaved_admins[0..-2].join(', ')} and #{@unsaved_admins.last} are not valid usernames" unless @unsaved_admins.nil?
+      end
       redirect_to @group
     else
       render 'new'
@@ -46,13 +59,10 @@ class GroupsController < ApplicationController
     render json: {free: groupname_is_free}.to_json
   end
 
-  def admins
-    Group.parse_admins params[:admins]
-  end
 
   private
 
     def group_params
-      { name: params[:group][:name], admins: admins, leader: current_user.name, points: 0 }
+      { name: params[:group][:name], leader: current_user.name, points: 0 }
     end
 end

@@ -3,7 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $('#change-password').hide()
   $('#change-profile-picture').hide()
   $('#change-affiliation').hide()
 

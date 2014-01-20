@@ -7,6 +7,10 @@ def sign_in user
   click_button "Enter"
 end
 
+def sign_out
+  click_link "Sign Out"
+end
+
 def full_title page_title
   base_title = "LetMeGolf"
   if page_title.empty?

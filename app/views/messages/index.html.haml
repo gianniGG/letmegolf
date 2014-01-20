@@ -25,7 +25,7 @@
     .col-xs-9
       .jumbotron.row#inbox
         %ul
-          -if @received_messages
+          -if @received_messages.count > 0
             -@received_messages.reverse.each do |msg|
               =link_to msg.subject, '#', onclick: 'return false'
               received
@@ -35,11 +35,13 @@
                 %span#sender= msg.sender.name
               %br
               .message-body= msg.body
+          -else
+            %h4 You have no messages.
 
     .col-xs-9
       .jumbotron.row#sent
         %ul
-          -if @sent_messages
+          -if @sent_messages.count > 0
             -@sent_messages.each do |msg|
               Sent
               %span
@@ -49,3 +51,5 @@
               %br
               = msg.body
               %br
+          -else
+            %h4 You haven't sent any messages.
