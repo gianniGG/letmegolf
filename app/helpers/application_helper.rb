@@ -7,4 +7,10 @@ module ApplicationHelper
       return "#{base_title} ~ #{extension}"
     end
   end
+
+  def pretty_list ary
+    return ary.first if ary.length == 1
+    ary[0...-1].join(', ') + " and #{ary.last}"
+  end
+
 end

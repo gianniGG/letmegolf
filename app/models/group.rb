@@ -25,7 +25,8 @@ class Group < ActiveRecord::Base
   end
 
   def self.invalid_admins parsed_admins
-    saved_admins_names = Group.saved_admins(parsed_admins).map{|usr| usr.name }
+    return nil unless parsed_admins
+    saved_admins_names = Group.saved_admins(parsed_admins).map(&:name)
     invalid_admins = parsed_admins - saved_admins_names
   end
 

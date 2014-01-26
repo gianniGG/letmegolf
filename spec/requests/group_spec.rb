@@ -76,7 +76,7 @@ describe "Groups" do
         fill_in :group_name, with: "ANiceGroupName"
       end
       specify { expect{click_button("Make group")}.to change(Group,:count).by 1 }
-      it { should have_content "Foobar made admin"}
+      it { should have_selector("div.alert.alert-success", text: "Group created. foobar granted administrative powers"); save_and_open_page }
     end
 
     context "with admins" do

@@ -17,25 +17,19 @@ class GroupsController < ApplicationController
 
     #group attributes before save
     entered_admins = params[:group][:admins] ? Group.parse_admins(params[:group][:admins]) : nil
-    admins_to_save = entered_admins ? Group.saved_admins(entered_admins) : nil
-    @group.users << current_user
-    @group.admins << current_user
+    admins_to_save = entered_admins ? Group.saved_admins(entered_admins) : current_user
+    unsaved_admins = Group.invalid_admins(entered_admins)
 
-    if admins_to_save
-      @group.users << admins_to_save; @group.admins << admins_to_save
-      @unsaved_admins = Group.invalid_admins(entered_admins)
-    end
+    @group.users << admins_to_save
+    @group.admins << admins_to_save
+    admin_names = @group.admins.map(&:name)
 
     @group.points = @group.total_user_points
 
-    @group.admins.map(&:name)
     if @group.save
-      flash[:success] = "Group created.\n"
-      if admins_to_save
-        flash[:success] << "#{@group.admins.first.name} made admin"
-        # flash[:success] << "Administrative powers given to #{@group.admins[0..-2].join(', ')} and #{@group.admins.last}"
-        # flash[:warning] << "#{@unsaved_admins[0..-2].join(', ')} and #{@unsaved_admins.last} are not valid usernames" unless @unsaved_admins.nil?
-      end
+      flash[:success] = "Group created. "
+      flash[:success] << pretty_list(admin_names) + " granted administrative powers"
+      flash[:alert] = pretty_list(unsaved_admins) + " are not valid users" if unsaved_admins
       redirect_to @group
     else
       render 'new'
@@ -58,7 +52,6 @@ class GroupsController < ApplicationController
     groupname_is_free = Group.find_by_name(params[:name]).nil?
     render json: {free: groupname_is_free}.to_json
   end
-
 
   private
 
