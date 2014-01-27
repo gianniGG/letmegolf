@@ -13,7 +13,6 @@ class MessagesController < ApplicationController
       flash[:success] = "Message sent."
       redirect_to user_messages_path(current_user)
     else
-
       render :index
     end
   end

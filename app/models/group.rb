@@ -5,8 +5,6 @@ class Group < ActiveRecord::Base
   validates :name, presence: true, length: { in: 4..20 }, uniqueness: { case_sensitive: false }
   validate :users_only_belong_to_one_group
 
-  before_save { self.admins.compact! }
-
   def users_only_belong_to_one_group
     if users.any? { |user| user.group }
       errors.add(:users, 'cannot belong to more than one group')

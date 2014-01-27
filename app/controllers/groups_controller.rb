@@ -22,14 +22,15 @@ class GroupsController < ApplicationController
 
     @group.users << admins_to_save
     @group.admins << admins_to_save
-    admin_names = @group.admins.map(&:name)
+
+    admin_names = @group.admins.empty? ? nil : @group.admins.map(&:name)
 
     @group.points = @group.total_user_points
 
     if @group.save
       flash[:success] = "Group created. "
-      flash[:success] << pretty_list(admin_names) + " granted administrative powers"
-      flash[:alert] = pretty_list(unsaved_admins) + " are not valid users" if unsaved_admins
+      flash[:success] << pretty_list(admin_names) + " granted administrative powers" if admin_names
+      flash[:alert] = pretty_list(unsaved_admins) + " are not LMG members" if unsaved_admins
       redirect_to @group
     else
       render 'new'

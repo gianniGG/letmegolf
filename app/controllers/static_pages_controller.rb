@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
-  skip_before_action :signed_in_user
-  skip_before_action :correct_user
+  skip_before_action :signed_in_user, only: [:home, :singleplay]
+  skip_before_action :correct_user, only: [:home, :singleplay]
 
   def home
   end

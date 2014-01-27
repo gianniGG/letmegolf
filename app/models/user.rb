@@ -1,11 +1,10 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :administrator_of, class_name: "Group", join_table: "group_admins"
-
-  attr_accessor :old_password
-
   has_many :sent_messages, foreign_key: :sender_id, class_name: "Message"
   has_many :received_messages, foreign_key: :recipient_id, class_name: "Message"
   belongs_to :group
+
+  attr_accessor :old_password
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 

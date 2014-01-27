@@ -39,15 +39,14 @@ describe "Groups" do
       before do
         fill_in :group_name, with: "ARandomGroupName"
         click_button "Make group"
-      end
-      before do
         visit new_group_path
-        fill_in :group_name, with: "ARandomGroupName"
+        fill_in :group_name, with: "AnotherGroupName"
         click_button "Make group"
       end
-
-      it { should have_selector 'div.alert.alert-warning' }
-      it { should have_content "cannot belong to more than one group" }
+      it do
+        raise page.html
+      end
+      it { should have_selector 'div.alert.alert-warning', text: "cannot belong to more than one group" }
     end
 
     describe "entering a group name that already exists" do
@@ -76,7 +75,10 @@ describe "Groups" do
         fill_in :group_name, with: "ANiceGroupName"
       end
       specify { expect{click_button("Make group")}.to change(Group,:count).by 1 }
-      it { should have_selector("div.alert.alert-success", text: "Group created. foobar granted administrative powers"); save_and_open_page }
+      it 'should show an alert' do
+        click_button("Make group")
+        expect(page).to have_css("div.alert.alert-success", text: "Group created. foobar granted administrative powers")
+      end
     end
 
     context "with admins" do
@@ -87,8 +89,7 @@ describe "Groups" do
           fill_in :group_admins, with: "Some_guy some_other_guy, and_another_guy"
           click_button "Make group"
         end
-
-        it { should have_content "Some_guy, some_other_guy and a_nice_lady are not LMG members" }
+        it { should have_content "Some_guy, some_other_guy and and_another_guy are not LMG members" }
       end
 
       context "that are valid users" do
